@@ -67,8 +67,8 @@ mysql -uroot -p"${hive_metastore_password}" --execute="create database oozie; gr
 
 # For master
 sudo yum -y install cloudera-manager-agent cloudera-manager-daemons cloudera-manager-server cloudera-manager-server-db-2
-sudo service cloudera-scm-server-db start
 sudo sed -i 's/hard/soft/g' /etc/security/limits.d/cloudera-scm.conf
+sudo service cloudera-scm-server-db start
 sudo service cloudera-scm-server start
 sudo sed -i.bak -e"s%server_host=localhost%server_host=${cm_server_host}%" /etc/cloudera-scm-agent/config.ini
 sudo service cloudera-scm-agent start
